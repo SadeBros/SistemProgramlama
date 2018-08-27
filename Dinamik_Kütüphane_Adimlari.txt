@@ -1,0 +1,11 @@
+1. Adım
+gcc -c -Wall -fpic CommunicationAPI.c -o CommunicationAPI.o
+ 
+2. Adım
+gcc -shared -o libCommunicationAPI.so CommunicationAPI.o
+
+3. Adım
+export LD_LIBRARY_PATH=/home/pi:$LD_LIBRARY_PATH
+
+4. Adım
+gcc -L./ -I./ -Wall -o appHomeClientTest homeClientTest.c -lCommunicationAPI 
